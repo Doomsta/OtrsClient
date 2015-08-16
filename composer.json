@@ -1,0 +1,13 @@
+{
+  "name": "arandel/otrsrpcclient",
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-0": {
+      "Arandel\\OtrsRpcClient\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=5.4.0",
+    "ext-soap": "*"
+  }
+}
