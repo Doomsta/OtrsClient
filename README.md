@@ -4,6 +4,8 @@
 #Basic usage
 
 ```php
+$otrsClient = new OtrsClient( 'some_user', 'some_pass', 'http://URL/otrs/rpc.pl');
+
 ```
 
 #Reporting issues
