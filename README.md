@@ -1,5 +1,5 @@
 # OTRS RPC CLIENT
-
+[![Build Status](https://travis-ci.org/Doomsta/PhpOtrsSoapClient.svg)](https://travis-ci.org/Doomsta/PhpOtrsSoapClient)
 
 #Basic usage
 
