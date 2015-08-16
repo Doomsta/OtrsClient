@@ -4,7 +4,6 @@ namespace Arandel\OtrsRpcClient\Api;
 
 use Arandel\OtrsRpcClient\Struct\HistoryStruct;
 
-
 /**
  * Class TicketApi
  * @package Arandel\OtrsRpcClient\Api
@@ -22,7 +21,7 @@ class TicketApi extends AbstractApi
      */
     public function checkNumber($tn)
     {
-        return (bool) $this->rpcCall('TicketCheckNumber', ['Tn' => $tn]);
+        return (bool)$this->rpcCall('TicketCheckNumber', ['Tn' => $tn]);
     }
 
     /**
@@ -51,9 +50,9 @@ class TicketApi extends AbstractApi
      */
     public function deleteTicket($ticketID, $userID)
     {
-        return (bool) $this->rpcCall('TicketDelete', [
+        return (bool)$this->rpcCall('TicketDelete', [
             'TicketID' => $ticketID,
-            'UserID'   => $userID,
+            'UserID' => $userID,
         ]);
     }
 
@@ -67,7 +66,7 @@ class TicketApi extends AbstractApi
     {
         return $this->rpcCall('TicketIDLookup', [
             'TicketNumber' => $ticketNumber,
-            'UserID'   => $userID,
+            'UserID' => $userID,
         ]);
     }
 
@@ -75,7 +74,7 @@ class TicketApi extends AbstractApi
     {
         return $this->rpcCall('TicketNumberLookup', [
             'TicketID' => $ticketID,
-            'UserID'   => $userID,
+            'UserID' => $userID,
         ]);
     }
 
@@ -101,10 +100,10 @@ class TicketApi extends AbstractApi
     {
         $raw = $this->rpcCall('HistoryGet', [
             'TicketID' => $ticketID,
-            'UserID'   => $userID,
+            'UserID' => $userID,
         ]);
         $result = [];
-        foreach($raw as $entry) {
+        foreach ($raw as $entry) {
             $result[] = new HistoryStruct($entry);
         }
         return $result;
@@ -112,9 +111,9 @@ class TicketApi extends AbstractApi
 
     public function getTicket($ticketId, $userId = null, $extended = false)
     {
-        $params = ['TicketID' => (int) $ticketId];
+        $params = ['TicketID' => (int)$ticketId];
         if ($userId) {
-            $params['UserID'] = (int) $userId;
+            $params['UserID'] = (int)$userId;
         }
         if ($extended) {
             $params['Extended'] = 1;
@@ -126,7 +125,7 @@ class TicketApi extends AbstractApi
     const SEARCH_RESULT_HASH = 'HASH';
     const SEARCH_RESULT_COUNT = 'COUNT';
 
-    public function ticketSearch($searchParams = [ 'Title' => '%'], $userId = 1, $resultType = self::SEARCH_RESULT_HASH)
+    public function ticketSearch($searchParams = ['Title' => '%'], $userId = 1, $resultType = self::SEARCH_RESULT_HASH)
     {
 
         $supportedResultTypes = [
@@ -140,12 +139,12 @@ class TicketApi extends AbstractApi
         }
 
         $params = [
-            'UserID' => (int) $userId,
+            'UserID' => (int)$userId,
             'Result' => $resultType,
         ];
         $result = $this->rpcCall('TicketSearch', array_merge($params, $searchParams));
 
-        return ($resultType === self::SEARCH_RESULT_ARRAY)? self::perlArray2PhpArray($result) : $result;
+        return ($resultType === self::SEARCH_RESULT_ARRAY) ? self::perlArray2PhpArray($result) : $result;
     }
 
 
@@ -159,22 +158,23 @@ class TicketApi extends AbstractApi
      */
     public function getStateList($queueID = null, $type = null, $ticketID = null, $userID = 1)
     {
-        if($queueID === null && $type === null && $ticketID === null) {
+        if ($queueID === null && $type === null && $ticketID === null) {
             throw new \InvalidArgumentException('at least one param $queueID|$type|$ticketID musst be set');
         }
         $params = [
             'UserID' => $userID,
         ];
-        if($queueID !== null) {
-            $params['QueueID'] = (int) $queueID;
+        if ($queueID !== null) {
+            $params['QueueID'] = (int)$queueID;
         }
-        if($type !== null) {
+        if ($type !== null) {
             $params['Type'] = $type;
         }
         return $this->rpcCall('TicketStateList', $params);
     }
 
 
-    public function getStateListByType() {}
+    public function getStateListByType()
+    {
+    }
 }
-

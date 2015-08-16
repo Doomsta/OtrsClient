@@ -2,16 +2,12 @@
 
 namespace Arandel\OtrsRpcClient;
 
-
 class RpcClient
 {
     protected $soapUrl;
     protected $username;
     protected $password;
-
     protected $client;
-
-    protected $_isDebug = false;
 
     public function __construct($soapUrl, $username, $password)
     {
@@ -22,13 +18,13 @@ class RpcClient
         $this->client = new \SoapClient(
             null,
             array(
-                'location'  => $this->soapUrl,
-                'uri'       => 'Core',
-                'trace'     => 1,
-                'login'     => $this->username,
-                'password'  => $this->password,
-                'style'     => SOAP_RPC,
-                'use'       => SOAP_ENCODED
+                'location' => $this->soapUrl,
+                'uri' => 'Core',
+                'trace' => 1,
+                'login' => $this->username,
+                'password' => $this->password,
+                'style' => SOAP_RPC,
+                'use' => SOAP_ENCODED
             )
         );
     }
@@ -38,7 +34,7 @@ class RpcClient
         $result = false;
 
 
-        $soapParams =  array($this->username, $this->password);
+        $soapParams = array($this->username, $this->password);
 
         foreach ($params as $paramName => $paramValue) {
             $soapParams[] = $paramName;
@@ -46,12 +42,12 @@ class RpcClient
         }
 
         try {
-
             $result = $this->client->__soapCall('Dispatch', $soapParams);
 
             if (is_array($result)) {
                 $result = $this->parsePairs($result);
             }
+
 
         } catch (\Exception $e) {
             print_R($e->getMessage());
@@ -75,7 +71,7 @@ class RpcClient
         $result = [];
         $values = array_values($data);
         foreach ($values as $key => $value) {
-            if($value instanceof \stdClass) {
+            if ($value instanceof \stdClass) {
                 $result[$key] = get_object_vars($value);
                 continue;
             }

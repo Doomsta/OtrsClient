@@ -18,7 +18,6 @@ use Arandel\OtrsRpcClient\Api\TicketApi;
 use Arandel\OtrsRpcClient\Api\TimeApi;
 use Arandel\OtrsRpcClient\Api\UserApi;
 
-
 class OtrsClient
 {
 
@@ -49,7 +48,7 @@ class OtrsClient
     {
         return $this->getApi('TicketApi');
     }
-    
+
     /** @return SessionApi */
     public function getSessionApi()
     {
@@ -61,7 +60,7 @@ class OtrsClient
     {
         return $this->getApi('UserApi');
     }
-    
+
     /** @return ConfigApi */
     public function getConfigApi()
     {
@@ -73,37 +72,37 @@ class OtrsClient
     {
         return $this->getApi('QueueApi');
     }
-    
+
     /** @return LogApi */
     public function getLogApi()
     {
         return $this->getApi('LogApi');
     }
-    
+
     /** @return CustomerUserApi */
     public function getCustomerUserApi()
     {
         return $this->getApi('CustomerUserApi');
     }
-    
+
     /** @return TimeApi */
     public function getTimeApi()
     {
         return $this->getApi('TimeApi');
     }
-    
+
     /** @return GroupApi */
     public function getGroupApi()
     {
         return $this->getApi('GroupApi');
     }
-    
+
     /** @return LinkApi */
     public function getLinkApi()
     {
         return $this->getApi('LinkApi');
     }
-    
+
     /** @return PIDApi */
     public function getPIDApi()
     {
@@ -115,7 +114,7 @@ class OtrsClient
     {
         return $this->getApi('MainApi');
     }
-    
+
     /** @return EncodeApi */
     public function getEncodeApi()
     {
@@ -130,7 +129,7 @@ class OtrsClient
 
     private function getApi($name)
     {
-        if(!isset($this->apis[$name])) {
+        if (!isset($this->apis[$name])) {
             $this->apis[$name] = new $name($this->getClient(), $this);
         }
         return $this->apis[$name];

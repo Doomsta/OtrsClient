@@ -2,7 +2,6 @@
 
 namespace Arandel\OtrsRpcClient\Api;
 
-
 /**
  * Class User
  * @package Arandel\OtrsRpcClient\EndPoint
@@ -46,7 +45,7 @@ class UserApi extends AbstractApi
 
     public function getPreferences($userID)
     {
-        return $this->rpcCall('GetPreferences',  [
+        return $this->rpcCall('GetPreferences', [
             'UserID' => $userID,
         ]);
     }

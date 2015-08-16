@@ -11,7 +11,6 @@ class QueueApi extends AbstractApi
 {
     protected $objectName = 'QueueObject';
 
-
     /**
      * get a queue system email address
      * @TODO return some struct
@@ -109,5 +108,4 @@ class QueueApi extends AbstractApi
     #QueuePreferencesSet
     #QueuePreferencesGet
     #NameExistsCheck
-
 }

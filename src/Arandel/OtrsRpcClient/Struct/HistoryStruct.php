@@ -2,7 +2,6 @@
 
 namespace Arandel\OtrsRpcClient\Struct;
 
-
 class HistoryStruct extends Struct
 {
 
@@ -50,5 +49,4 @@ class HistoryStruct extends Struct
     public $UserLoginFailed = null;
     public $Name = null;
     public $UserSendWatcherNotification = null;
-
 }

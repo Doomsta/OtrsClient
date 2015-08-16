@@ -2,7 +2,6 @@
 
 namespace Arandel\OtrsRpcClient\Api;
 
-
 /**
  * Class CustomerCompanyApi
  * @package Arandel\OtrsRpcClient\Api
@@ -12,4 +11,3 @@ class CustomerCompanyApi extends AbstractApi
 {
     protected $objectName = 'CustomerCompanyObject';
 }
-

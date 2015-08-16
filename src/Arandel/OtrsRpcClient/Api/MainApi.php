@@ -9,11 +9,31 @@ namespace Arandel\OtrsRpcClient\Api;
  */
 class MainApi extends AbstractApi
 {
-    public function fileRead()  {}
-    public function fileWrite()  {}
-    public function fileDelete()  {}
-    public function fileGetMTime()  {}
-    public function getMD5sum()  {}
-    public function directoryRead()  {}
-    public function generateRandomString()  {}
+    public function fileRead()
+    {
+    }
+
+    public function fileWrite()
+    {
+    }
+
+    public function fileDelete()
+    {
+    }
+
+    public function fileGetMTime()
+    {
+    }
+
+    public function getMD5sum()
+    {
+    }
+
+    public function directoryRead()
+    {
+    }
+
+    public function generateRandomString()
+    {
+    }
 }

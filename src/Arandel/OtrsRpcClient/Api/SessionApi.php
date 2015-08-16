@@ -2,7 +2,6 @@
 
 namespace Arandel\OtrsRpcClient\Api;
 
-
 /**
  * Class Session
  * @package Arandel\OtrsRpcClient\EndPoint

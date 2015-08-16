@@ -50,7 +50,7 @@ abstract class AbstractApi
      */
     protected function rpcCall($method, $params = [], $debug = false)
     {
-        if($debug) {
+        if ($debug) {
             print_R($params);
         }
         $endpoint = array($this->getObjectName() => $method);
@@ -62,12 +62,12 @@ abstract class AbstractApi
      * @param array $row
      * @return array
      */
-    public final static function perlArray2PhpArray(array $row = [])
+    final public static function perlArray2PhpArray(array $row = [])
     {
         $r = [];
-        foreach($row as $val0 => $val1) {
+        foreach ($row as $val0 => $val1) {
             $r[] = $val0;
-            if($val1) {
+            if ($val1) {
                 $r[] = $val1;
             }
         }
